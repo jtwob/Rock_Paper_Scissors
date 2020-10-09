@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <script>
+        
+        let userScore = 0;
+        let cpuScore = 0;
+        let choiceArr = ["r", "p", "s"];
+
+
+        for(let i = 0; i < 5; i++){
+            let computerChoice = choiceArr[Math.floor(Math.random() * choiceArr.length)];
+            let userChoice = prompt("Enter your move (r, p, or s): ");
+            alert(("Computer chose "+ computerChoice));
+            console.log(computerChoice);
+            if(computerChoice === userChoice){
+               alert("Tie");
+            }
+            else if(userChoice === "r" && computerChoice === "s"){
+                alert("User wins!");
+                userScore++;
+            }
+            else if(userChoice === "r" && computerChoice === "p"){
+                alert("Computer wins!");
+                cpuScore++;
+            }
+            else if(userChoice === "p" && computerChoice === "s"){
+                alert("Computer wins!");
+                cpuScore++;
+            }
+            else if(userChoice === "p" && computerChoice === "r"){
+                alert("User wins!");
+                userScore++;
+            }
+            else if(userChoice === "s" && computerChoice === "r"){
+                alert("Computer wins!");
+                cpuScore++;
+            }
+            else if(userChoice === "s" && computerChoice === "p"){
+                alert("User wins!");
+                userScore++;
+            }
+        }
+        if(userScore > cpuScore){
+            alert(("User Wins: User-"+ userScore + " Computer-"+ cpuScore));
+        }
+        else if( userScore < cpuScore){
+            alert(("Computer Wins: User-"+ userScore + " Computer-"+ cpuScore));
+        }else{
+            alert(("Tie: User-"+ userScore + " Computer-"+ cpuScore));
+        }
+
+        //alert(("Final score: User-"+ userScore + " Computer-"+ cpuScore));
+
+    </script>
+</body>
+</html>
