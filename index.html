@@ -23,29 +23,23 @@
                     alert("Tie");
                     i--;
                 }
-                else if(userChoice === "r" && computerChoice === "s"){
+                else if(
+                    (userChoice === "r" && computerChoice === "s") ||
+                    (userChoice === "p" && computerChoice === "r") ||
+                    (userChoice === "s" && computerChoice === "p")
+                    ){
                     alert("User wins!");
                     userScore++;
                 }
-                else if(userChoice === "r" && computerChoice === "p"){
+                else if(
+                    (userChoice === "r" && computerChoice === "p") ||
+                    (userChoice === "p" && computerChoice === "s") ||
+                    (userChoice === "s" && computerChoice === "r")
+                    ){
                     alert("Computer wins!");
                     cpuScore++;
-                }
-                else if(userChoice === "p" && computerChoice === "s"){
-                    alert("Computer wins!");
-                    cpuScore++;
-                }
-                else if(userChoice === "p" && computerChoice === "r"){
-                    alert("User wins!");
-                    userScore++;
-                }
-                else if(userChoice === "s" && computerChoice === "r"){
-                    alert("Computer wins!");
-                    cpuScore++;
-                }
-                else if(userChoice === "s" && computerChoice === "p"){
-                    alert("User wins!");
-                    userScore++;
+                }else{
+                    console.log("why are we here");
                 }
             } else {
                 alert("invalid entry");
@@ -54,12 +48,12 @@
             
         }
         if(userScore > cpuScore){
-            alert(("User Wins: User-"+ userScore + " Computer-"+ cpuScore));
+            alert(`User wins! Score: ${userScore} - ${cpuScore}`);
         }
         else if( userScore < cpuScore){
-            alert(("Computer Wins: User-"+ userScore + " Computer-"+ cpuScore));
+            alert(`Computer wins! Score: ${userScore} - ${cpuScore}`);
         }else{
-            alert(("Tie: User-"+ userScore + " Computer-"+ cpuScore));
+            alert(`Tie. Score: ${userScore} - ${cpuScore}`);
         }
 
         //alert(("Final score: User-"+ userScore + " Computer-"+ cpuScore));
