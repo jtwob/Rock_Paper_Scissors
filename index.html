@@ -15,36 +15,43 @@
 
         for(let i = 0; i < 5; i++){
             let computerChoice = choiceArr[Math.floor(Math.random() * choiceArr.length)];
-            let userChoice = prompt("Enter your move (r, p, or s): ");
-            alert(("Computer chose "+ computerChoice));
-            console.log(computerChoice);
-            if(computerChoice === userChoice){
-               alert("Tie");
+            let userChoice = (prompt("Enter your move (r, p, or s): ")).toLowerCase();
+            if(userChoice === "r" || userChoice === "p" || userChoice === "s"){
+                alert(("Computer chose "+ computerChoice));
+                console.log(computerChoice);
+                if(computerChoice === userChoice){
+                    alert("Tie");
+                    i--;
+                }
+                else if(userChoice === "r" && computerChoice === "s"){
+                    alert("User wins!");
+                    userScore++;
+                }
+                else if(userChoice === "r" && computerChoice === "p"){
+                    alert("Computer wins!");
+                    cpuScore++;
+                }
+                else if(userChoice === "p" && computerChoice === "s"){
+                    alert("Computer wins!");
+                    cpuScore++;
+                }
+                else if(userChoice === "p" && computerChoice === "r"){
+                    alert("User wins!");
+                    userScore++;
+                }
+                else if(userChoice === "s" && computerChoice === "r"){
+                    alert("Computer wins!");
+                    cpuScore++;
+                }
+                else if(userChoice === "s" && computerChoice === "p"){
+                    alert("User wins!");
+                    userScore++;
+                }
+            } else {
+                alert("invalid entry");
+                i--;
             }
-            else if(userChoice === "r" && computerChoice === "s"){
-                alert("User wins!");
-                userScore++;
-            }
-            else if(userChoice === "r" && computerChoice === "p"){
-                alert("Computer wins!");
-                cpuScore++;
-            }
-            else if(userChoice === "p" && computerChoice === "s"){
-                alert("Computer wins!");
-                cpuScore++;
-            }
-            else if(userChoice === "p" && computerChoice === "r"){
-                alert("User wins!");
-                userScore++;
-            }
-            else if(userChoice === "s" && computerChoice === "r"){
-                alert("Computer wins!");
-                cpuScore++;
-            }
-            else if(userChoice === "s" && computerChoice === "p"){
-                alert("User wins!");
-                userScore++;
-            }
+            
         }
         if(userScore > cpuScore){
             alert(("User Wins: User-"+ userScore + " Computer-"+ cpuScore));
